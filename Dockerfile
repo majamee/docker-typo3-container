@@ -33,4 +33,4 @@ RUN apt-get update && \
     chmod +x /bin/entrypoint.sh
 
 # Run script to fix permissions on Linux when Docker is being started
-ENTRYPOINT ["/bin/entrypoint.sh"]
+#ENTRYPOINT ["/bin/entrypoint.sh"]
