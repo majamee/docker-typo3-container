@@ -34,3 +34,4 @@ RUN apt-get update && \
 
 # Run script to fix permissions on Linux when Docker is being started
 ENTRYPOINT ["/bin/entrypoint.sh"]
+CMD sleep infinity
