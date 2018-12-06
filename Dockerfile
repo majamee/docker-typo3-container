@@ -1,5 +1,8 @@
 FROM php:7.2-apache-stretch
 
+# Include shell script to fix permissions on Linux executable
+COPY ./entrypoint.sh /bin/entrypoint.sh
+
 # Install TYPO3
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -25,6 +28,9 @@ RUN apt-get update && \
         libmcrypt-dev \
         libpng-dev \
         zlib1g-dev && \
-    rm -rf /var/lib/apt/lists/* /usr/src/*
+    rm -rf /var/lib/apt/lists/* /usr/src/* && \
+# Make shell script to fix permissions on Linux executable
+    chmod +x /bin/entrypoint.sh
 
-RUN cd /var/www/html && chown -R www-data .
+# Run script to fix permissions on Linux when Docker is being started
+ENTRYPOINT ["/bin/entrypoint.sh"]
