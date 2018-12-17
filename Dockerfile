@@ -25,4 +25,4 @@ RUN apt-get update && \
         libmcrypt-dev \
         libpng-dev \
         zlib1g-dev && \
-    rm -rf /var/lib/apt/lists/* /usr/src/* && \
+    rm -rf /var/lib/apt/lists/* /usr/src/*
