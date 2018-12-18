@@ -26,3 +26,6 @@ RUN apt-get update && \
         libpng-dev \
         zlib1g-dev && \
     rm -rf /var/lib/apt/lists/* /usr/src/*
+
+# Fix file ownership
+RUN cd /var/www/html && chown -R www-data .
