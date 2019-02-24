@@ -1,4 +1,4 @@
-FROM php:7.2-apache-stretch
+FROM php:7.2-fpm
 
 # Install TYPO3
 RUN apt-get update && \
